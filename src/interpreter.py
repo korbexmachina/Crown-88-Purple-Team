@@ -14,7 +14,7 @@ import csv
 
 # Global variables
 MODEL = "llama-lyric"
-PROMPT = "Catagorize this song based on the lyrics: happy, sad, angry, or calm"
+PROMPT = "Categorize this song based on the lyrics: happy, sad, angry, or calm"
 PORT = 11434
 HOST = "127.0.0.1"
 

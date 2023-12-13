@@ -8,7 +8,6 @@
 import requests
 import json
 import time
-import os
 import sys
 import csv
 

@@ -68,11 +68,11 @@ def main() -> None:
         # For each row in the file
         for row in reader:
             # Get the song name
-            song = row[1]
+            song = row[2]
             # Get the artist name
-            artist = row[0]
+            artist = row[3]
             # Get the lyrics
-            lyrics = row[3]
+            lyrics = row[4]
             # Format the request
             req = format_request(song, artist, lyrics)
             # Send the request to ollama

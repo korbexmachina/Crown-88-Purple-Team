@@ -21,5 +21,5 @@ pip install -r requirements.txt
 for file in "$@"
 do
     echo "Running $file"
-    python interpreter data/$file > $file_out.txt
+    python3 interpreter.py data/$file
 done

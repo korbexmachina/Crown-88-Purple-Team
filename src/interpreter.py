@@ -13,8 +13,7 @@ import sys
 import csv
 
 # Global variables
-MODEL = "llama-lyric"
-PROMPT = "Categorize this song based on the lyrics: happy, sad, angry, or calm"
+MODEL = "lyric-llama"
 PORT = 11434
 HOST = "127.0.0.1"
 
@@ -86,9 +85,12 @@ def main() -> None:
             final_output += f"{song} by {artist}:\n{output}\n\n"
             # Increment the song count
             song_count += 1
+        
+        # Generate the output file name
+        output_file_name = file_name.split(".")[0] + "_output.txt"
 
         # Open the output file
-        with open("output.txt", 'w') as outfile:
+        with open(output_file_name, 'w') as outfile:
             # Write the output
             outfile.write(final_output)
 

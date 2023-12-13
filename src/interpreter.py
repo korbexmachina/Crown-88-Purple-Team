@@ -45,17 +45,23 @@ def get_output(response) -> str:
     '''
     return response["response"]
 
-def main():
+def main() -> None:
     '''
     Main function
     '''
     # Start the timer
     start = time.time()
 
+    # Output string
+    final_output = ""
+
+    # Song count
+    song_count = 0
+
     # Get the file name from the command line
     file_name = sys.argv[1]
     # Open the file
-    with open(file_name, newline='') as csvfile:
+    with open(file_name, 'r') as csvfile:
         # Read the file
         reader = csv.reader(csvfile, delimiter=',')
         # Skip the header
@@ -65,7 +71,7 @@ def main():
             # Get the song name
             song = row[1]
             # Get the artist name
-            artist = row[2]
+            artist = row[0]
             # Get the lyrics
             lyrics = row[3]
             # Format the request
@@ -76,12 +82,20 @@ def main():
             response = get_response(response)
             # Get the output
             output = get_output(response)
-            # Print the output
-            print(output)
+            # Append the output to the final output
+            final_output += f"{song} by {artist}:\n{output}\n\n"
+            # Increment the song count
+            song_count += 1
+
+        # Open the output file
+        with open("output.txt", 'w') as outfile:
+            # Write the output
+            outfile.write(final_output)
+
             # Print the run time, the number of songs processed, and the average time per song
             print(f"Run time: {time.time() - start} seconds")
-            print(f"Songs processed: {reader.line_num - 1}")
-            print(f"Average time per song: {(time.time() - start) / (reader.line_num - 1)} seconds")
+            print(f"Songs processed: {song_count}")
+            print(f"Average time per song: {(time.time() - start) / song_count} seconds")
+            exit(0)
 
-if __name__ == "__interpreter__":
-    main()
+main()

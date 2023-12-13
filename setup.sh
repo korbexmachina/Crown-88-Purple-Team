@@ -26,8 +26,11 @@ then
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]
     then
+        echo "Deleting virtual environment..."
         rm -rf venv
+        echo "Virtual environment deleted."
     else
+        echo "Virtual environment not deleted, exiting."
         exit
     fi
 fi

@@ -6,13 +6,10 @@ PARAMETER temperature 0.5
 # Low tau
 PARAMETER mirostat_tau 1.0
 
-# Only predict one word
-PARAMETER num_predict 1
-
 # set the system prompt
 SYSTEM """
 Your job is to catagorize songs into the following groups based on the lyrics: Happy, Angry, Sad, Calm, or Neutral.
-Respond with only the name of a catagory, do not discuss the choice at all.
+Respond with only the name of a catagory, you should not discuss the lyrics or provide any other information.
 """
 
 TEMPLATE """

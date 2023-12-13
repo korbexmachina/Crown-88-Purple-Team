@@ -1,16 +1,21 @@
 # Crown-88-Purple-Team
 
-## Research Questions
+## Usage
 
-## Hypothesis
+1. Clone the repository and cd into it
 
-## Method
+2. Build the model from the Modelfile
+    - `ollama create lyric-llama -f ./Modelfile`
 
-## Results
+3. cd into the src directory
 
-## Conclusion
+4. Add your csv files to the `data` directory
 
-## Datasets
+5. Run the following command, providing the files you want to use as arguments
+    - `./run_interpreter.sh <File1> <File2> ... <FileN>`
+    - __Note:__ The file paths will be interpreted relative to the data directory.
 
-- Billboard Hot 100
-- Spotify Million Song Dataset
+## System Dependencies
+
+- [Ollama](https://ollama.ai/)
+- [Python3](https://www.python.org/)
